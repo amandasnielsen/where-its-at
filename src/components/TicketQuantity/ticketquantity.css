@@ -1,0 +1,41 @@
+.ticket__quantity-container {
+	text-align: center;
+	width: 200px;
+	height: auto;
+	border: 2px solid var(--font-color-main);
+	margin-top: 4rem;
+}
+
+.ticket__price {
+	font-size: 32px;
+	font-family: 'FiraSans';
+	text-shadow: 1px 1px 0px #F56B9A;
+	color: #ffffff;
+	border-bottom: 1px solid var(--font-color-main);
+	height: 70px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.ticket__quantity {
+	display: flex;
+	flex-direction: row;
+	font-family: 'FiraSans';
+	height: 50px;
+	align-items: center;
+	justify-content: space-evenly;
+}
+
+.ticket__quantity span {
+	color: #ffffff;
+	font-size: 28px;
+}
+
+.ticket__quantity button {
+	background: none;
+	border: none;
+	color: white;
+	font-size: 28px;
+	cursor: pointer;
+}

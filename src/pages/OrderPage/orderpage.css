@@ -1,0 +1,23 @@
+.order__page {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: 100vh;
+	width: 100%;
+	background: var(--background-color-gradient);
+	text-align: center;
+}
+
+.order__page h1 {
+	font-family: 'SansitaOne';
+	font-size: var(--font-size-title);
+	color: var(--font-color-main);
+	margin-top: 2rem;
+}
+
+.order__item {
+	border: 1px solid var(--font-color-main);
+	width: 310px;
+	height: 96px;
+	margin-top: 2rem;
+}

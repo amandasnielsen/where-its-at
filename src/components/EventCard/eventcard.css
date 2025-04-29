@@ -1,0 +1,74 @@
+.event__card {
+	width: auto;
+	padding: 1rem;
+	text-align: center;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
+}
+
+.event__card-left {
+	display: flex;
+	flex: 1;
+}
+
+.event__card-date {
+	height: 70px;
+	width: 70px;
+	border: 1px solid white;
+	border-radius: 6px;
+	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 14px;
+	padding: 1.5rem;
+	font-family: 'FiraSans';
+}
+
+.event__card-right {
+	text-align: left;
+	margin-left: 1rem;
+	width: 250px;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.event__card-name {
+	font-family: 'SansitaOne';
+	color: #ffffff;
+	font-size: 22px;
+	text-shadow: 1px 1px 0px #F56B9A;
+}
+
+.event__card-where {
+	font-family: 'FiraSans';
+	color: #ffffff93;
+	font-style: italic;
+	font-size: 12px;
+	margin-top: .2rem;
+	margin-bottom: .4rem;
+}
+
+.event__card span {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	font-family: 'FiraSans';
+}
+
+.event__card-time {
+	font-size: 14px;
+	color: #D0D0D0;
+	text-align: right;
+}
+
+.event__card-price {
+	color: var(--blue-color);
+	font-size: 17px;
+}
+
+.event__card-link {
+	text-decoration: none;
+}

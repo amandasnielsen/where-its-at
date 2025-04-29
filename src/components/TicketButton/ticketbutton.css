@@ -1,0 +1,14 @@
+.custom-button {
+	padding: 1rem;
+	background-color: var(--blue-color);
+	color: white;
+	font-size: 16px;
+	cursor: pointer;
+	width: 310px;
+	height: 60px;
+	border: none;
+	font-size: 22px;
+	font-family: 'FiraSans';
+	position: absolute;
+	bottom: 2rem;
+  }

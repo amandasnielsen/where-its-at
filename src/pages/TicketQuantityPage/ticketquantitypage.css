@@ -1,0 +1,54 @@
+.event__details {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: 100vh;
+	width: 100%;
+	background: var(--background-color-gradient);
+	text-align: center;
+}
+
+.event__details h1 {
+	font-family: 'SansitaOne';
+	font-size: var(--font-size-title);
+	color: var(--font-color-main);
+	margin-top: 2rem;
+}
+
+.score-tickets {
+	font-family: 'FiraSans';
+	font-style: italic;
+	font-size: 19px;
+	color: #ffffffa2;
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+}
+
+.event__title {
+	font-family: 'SansitaOne';
+	font-size: var(--font-size-title);
+	color: var(--font-color-main);
+	margin-top: 2rem;
+}
+
+.event__when {
+	font-family: 'FiraSans';
+	color: var(--blue-color);
+	font-size: 19px;
+	margin-top: 1rem;
+}
+
+.event__where {
+	font-family: 'FiraSans';
+	color: #ffffffa2;
+	font-size: 16px;
+	margin-top: 1rem;
+}
+
+.event__price {
+	font-family: 'SansitaOne';
+	font-size: var(--font-size-title);
+	color: #ffffff;
+	margin-top: 2rem;
+	text-shadow: 1px 1px 0px #F56B9A;
+}
