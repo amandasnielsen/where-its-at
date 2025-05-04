@@ -6,7 +6,7 @@
 
 :root {
   --background-color-gradient: linear-gradient(135deg, #2a254f 0%, #231F42 100%);
-  --background-color-tickets: linear-gradient(135deg, #3b3471 0%, #231F42 100%);
+  --background-color-tickets: linear-gradient(135deg, #F56B9A 0%, #231F42 100%);
 
   --font-color-main: #F56B9A;
   --blue-color: #37AEAB;
@@ -22,6 +22,11 @@
 @font-face {
   font-family: 'FiraSans';
   src: url('./assets/fonts/FiraSans.ttf');
+}
+
+@font-face {
+  font-family: 'FiraSans-Light';
+  src: url('./assets/fonts/FiraSans-Light.ttf');
 }
 
 @font-face {

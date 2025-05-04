@@ -15,9 +15,92 @@
 	margin-top: 2rem;
 }
 
+.order__list {
+	overflow-y: auto;
+	max-height: 55vh;
+	margin-top: 1rem;
+}
+
 .order__item {
-	border: 1px solid var(--font-color-main);
+	border: 2px solid var(--font-color-main);
+	border-radius: 10px;
 	width: 310px;
-	height: 96px;
+	height: 100px;
 	margin-top: 2rem;
+	margin-bottom: 1rem;
+}
+
+.order__item-top {
+	height: 60px;
+	display: flex;
+	flex-direction: column;
+	text-align: left;
+	padding: .5rem;
+	border-bottom: 2px solid var(--font-color-main);
+
+	.order__item-name {
+		font-family: 'SansitaOne';
+		font-size: 24px;
+		color: var(--font-color-main);
+	}
+
+	.order__item-time {
+		font-family: 'FiraSans';
+		font-size: 14px;
+		color: var(--blue-color);
+	}
+}
+
+.order__item-bottom {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.order__page-counter {
+	height: 36px;
+	border: none;
+	width: 100%;
+	margin: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+  
+.order__page-counter button {
+	margin: 0 3rem;
+}
+  
+.order__page-counter span {
+	margin: 0 2rem;
+}
+
+.order__total-amount {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	position: absolute;
+	bottom: 12rem;
+
+	.order__total-text {
+		font-family: 'FiraSans-Light';
+		font-style: italic;
+		color: #ffffff;
+		font-size: 19px;
+		margin-top: 1rem;
+	}
+
+	.order__total-price {
+		font-family: 'FiraSans';
+		font-size: var(--font-size-title);
+		color: #ffffff;
+		text-shadow: 1px 1px 0px #F56B9A;
+		margin-top: .5rem;
+	}
+}
+
+@media (max-height: 760px) {
+	.order__list {
+	  max-height: 45vh;
+	}
 }

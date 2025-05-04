@@ -1,0 +1,117 @@
+.tickets__page {
+	background: var(--background-color-tickets);
+	height: 100vh;
+	width: 100%;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.tickets__page h1 {
+	font-family: 'SansitaOne';
+	font-size: var(--font-size-title);
+	color: #ffffff;
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+}
+  
+.tickets__list {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	overflow-y: auto;
+	max-height: 75vh;
+}
+  
+.ticket__card {
+	width: 311px;
+	height: 450px;
+	background: white;
+	box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+	font-family: 'Fira Sans', sans-serif;
+	margin-bottom: 1rem;
+	text-align: left;
+}
+  
+.ticket__section {
+	padding: 1rem;
+	border-top: 1px dashed #ccc;
+}
+  
+.ticket__section:first-child {
+	border-top: none;
+}
+  
+.ticket__label {
+	font-size: 12px;
+	font-weight: bold;
+	color: #888;
+	text-transform: uppercase;
+}
+  
+.ticket__event {
+	font-family: 'SansitaOne';
+	font-size: 24px;
+	color: #f56b9a;
+	margin: 0.5rem 0 0;
+}
+  
+.ticket__place {
+	font-weight: bold;
+	font-size: 18px;
+}
+
+.ticket__section-time {
+	display: flex;
+	flex-direction: row;
+	gap: .5rem;
+	padding: 0;
+}
+  
+.ticket__time-box {
+	width: 32%;
+	padding: 1rem;
+}
+
+.ticket__time-dash {
+	border-left: 1px dashed #ccc;
+	border-right: 1px dashed #ccc;
+}
+  
+.ticket__value {
+	font-size: 18px;
+	color: #444;
+	margin-top: .25rem;
+}
+  
+.ticket__info {
+	font-size: 14px;
+	color: #444;
+}
+  
+.ticket__section.barcode {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background: #eee;
+	color: #444;
+	padding: 1rem;
+}
+  
+.barcode-container {
+	font-family: 'LibreBarcode';
+	font-size: 3rem;
+}
+  
+.ticket__id {
+	font-size: 14px;
+	letter-spacing: 2px;
+	color: #666;
+}
+
+@media (max-height: 760px) {
+	.tickets__list {
+	  max-height: 60vh;
+	}
+}

@@ -15,6 +15,7 @@ function App() {
           <Route path="/tickets" element={<TicketsPage />} />
           <Route path="/event/:eventId" element={<TicketQuantity />} />
           <Route path="/order" element={<OrderPage />} />
+          <Route path="/tickets" element={<TicketsPage />} />
         </Routes>
       </section>
     </BrowserRouter>

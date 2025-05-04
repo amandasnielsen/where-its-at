@@ -1,20 +1,22 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { useCartStore } from '../../store/cartStore';
 import axios from 'axios';
 import './ticketquantitypage.css';
 import TicketQuantity from '../../components/TicketQuantity/TicketQuantity';
 import TicketButton from '../../components/TicketButton/TicketButton';
+import NavButtons from '../../components/NavButtons/NavButtons';
 
 function TicketQuantityPage() {
   const { eventId } = useParams();
   const [event, setEvent] = useState(null);
   const [ticketCount, setTicketCount] = useState(1);
+  const addToCart = useCartStore((state) => state.addToCart);
   const navigate = useNavigate();
 
   useEffect(() => {
 	axios.get('https://santosnr6.github.io/Data/events.json')
 	  .then(res => {
-		console.log("RAW response:", res.data);
 		const data = Array.isArray(res.data) ? res.data : res.data.events;
   
 		const found = res.data.events.find(e => e.id === eventId);
@@ -34,20 +36,31 @@ function TicketQuantityPage() {
 	  id: event.id,
 	  name: event.name,
 	  price: event.price,
-	  quantity: ticketCount
+	  location: event.where,
+	  quantity: ticketCount,
+	  date: event.when.date,
+	  from: event.when.from,
+	  to: event.when.to
 	};
   
 	const existingCart = JSON.parse(localStorage.getItem('cart')) || [];
-    const existingIndex = existingCart.findIndex(i => i.id === item.id);
-
-    if (existingIndex !== -1) {
-      existingCart[existingIndex].quantity += item.quantity;
-    } else {
-      existingCart.push(item);
-    }
-
-    localStorage.setItem('cart', JSON.stringify(existingCart));
-    navigate('/order');
+	const existingIndex = existingCart.findIndex(i => i.id === item.id);
+  
+	if (existingIndex !== -1) {
+	  existingCart[existingIndex].quantity += item.quantity;
+	} else {
+	  existingCart.push(item);
+	}
+  
+	addToCart(item);
+	
+	// Lägg till state här för att skicka event- och ticket-information till order-sidan
+	navigate('/order', {
+	  state: { 
+		event,  // Skicka hela eventet inklusive where
+		tickets: existingCart  // Skicka med en lista över biljetterna (eller de som har lagts till)
+	  }
+	});
   };
 
   return (
@@ -58,16 +71,17 @@ function TicketQuantityPage() {
 		<p className='event__when'>{event.when.date} - {event.when.from}-{event.when.to}</p>
 		<p className='event__where'>@ {event.where}</p>
 		<p className='event__price'>{event.price} sek</p>
-		<TicketQuantity 
-			event={event} 
-			ticketCount={ticketCount} 
+		<TicketQuantity
+			item={ticketCount}
 			setTicketCount={setTicketCount}
+			price={event.price}
 		/>
 		<TicketButton 
 			onClick={handleAddToCart}
 			text="Add to cart" 
 			className="button__cart"
 		/>
+		<NavButtons />
     </div>
   );
 }

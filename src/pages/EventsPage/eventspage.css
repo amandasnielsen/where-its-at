@@ -46,13 +46,13 @@
 
 .event__list-scroll {
 	overflow-y: auto;
-	max-height: 70vh;
+	max-height: 65vh;
 	width: 100%;
 	padding: 1rem;
 	margin-top: 1rem;
 }
 
-@media (max-width: 768px) {
+@media (max-height: 760px) {
 	.event-list-scroll {
 	  max-height: 50vh;
 	}

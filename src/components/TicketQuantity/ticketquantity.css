@@ -21,7 +21,7 @@
 .ticket__quantity {
 	display: flex;
 	flex-direction: row;
-	font-family: 'FiraSans';
+	font-family: 'FiraSans-Light';
 	height: 50px;
 	align-items: center;
 	justify-content: space-evenly;
@@ -30,6 +30,7 @@
 .ticket__quantity span {
 	color: #ffffff;
 	font-size: 28px;
+	font-weight: thin;
 }
 
 .ticket__quantity button {
