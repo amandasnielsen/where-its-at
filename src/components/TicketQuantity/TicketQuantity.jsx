@@ -2,8 +2,11 @@ import React from 'react';
 import './ticketquantity.css';
 import { useCartStore } from '../../store/cartStore';
 
+// Component to show and update quantity and pricr
 function TicketQuantity({ item, setTicketCount, price, hidePrice = false, customClass = '' }) {
+  // Getting function from my globale state (cartStore) to update quantity
   const updateItemQuantity = useCartStore(state => state.updateItemQuantity);
+  // Controlling if setTicketCount is a function, to be handled locally or globally
   const isControlled = typeof setTicketCount === 'function';
 
   const handleIncrease = () => {
@@ -22,6 +25,7 @@ function TicketQuantity({ item, setTicketCount, price, hidePrice = false, custom
     }
   };
 
+  // Deciding what quantity and price is shown, depending if handled locally och globally
   const displayQuantity = isControlled ? item : item.quantity;
   const displayPrice = isControlled ? price : item.price;
   const displayTotal = displayPrice * displayQuantity;

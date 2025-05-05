@@ -52,3 +52,17 @@
 	margin-top: 2rem;
 	text-shadow: 1px 1px 0px #F56B9A;
 }
+
+@media (max-height: 730px) {
+	.score-tickets {
+		margin-bottom: 1rem;
+	}
+
+	.event__title {
+		margin-top: 1rem;
+	}
+
+	.event__price {
+		margin-bottom: -3rem;
+	}
+}

@@ -1,0 +1,49 @@
+.notfound__page {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: 100vh;
+	width: 100%;
+	background: var(--background-color-gradient);
+	text-align: center;
+}
+
+.error__text {
+	display: flex;
+	flex-direction: column;
+	margin-top: 6rem;
+	font-family: 'SansitaOne';
+	color: #ffffff;
+	gap: 3rem;
+
+	h2 {
+		font-size: 5rem;
+	}
+
+	p {
+		font-size: 1.5rem;
+	}
+}
+
+.button__notfound {
+	background-color: var(--blue-color);
+	height: auto;
+	width: auto;
+	padding: 1rem;
+	border-radius: 30px;
+	color: #ffffff;
+	font-family: 'FiraSans-Light';
+	text-decoration: none;
+	position: absolute;
+	bottom: 2rem;
+	transition: transform 0.2s, background-color 0.2s;
+}
+
+.button__notfound:hover {
+	cursor: pointer;
+	transform: scale(1.05);
+}
+
+.button__notfound:active {
+	transform: scale(0.95);
+}

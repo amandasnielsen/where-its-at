@@ -1,21 +1,3 @@
-.tickets__page {
-	background: var(--background-color-tickets);
-	height: 100vh;
-	width: 100%;
-	text-align: center;
-	display: flex;
-	align-items: center;
-	flex-direction: column;
-}
-
-.tickets__page h1 {
-	font-family: 'SansitaOne';
-	font-size: var(--font-size-title);
-	color: #ffffff;
-	margin-top: 2rem;
-	margin-bottom: 2rem;
-}
-  
 .tickets__list {
 	display: flex;
 	flex-direction: column;
@@ -26,10 +8,10 @@
   
 .ticket__card {
 	width: 311px;
-	height: 450px;
+	height: auto;
 	background: white;
 	box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-	font-family: 'Fira Sans', sans-serif;
+	font-family: 'FiraSans';
 	margin-bottom: 1rem;
 	text-align: left;
 }
@@ -58,8 +40,8 @@
 }
   
 .ticket__place {
-	font-weight: bold;
 	font-size: 18px;
+	margin-top: .25rem;
 }
 
 .ticket__section-time {
@@ -102,6 +84,7 @@
 .barcode-container {
 	font-family: 'LibreBarcode';
 	font-size: 3rem;
+	letter-spacing: .2rem;
 }
   
 .ticket__id {

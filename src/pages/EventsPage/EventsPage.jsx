@@ -1,34 +1,34 @@
 import NavButtons from '../../components/NavButtons/NavButtons';
 import './eventspage.css';
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import EventCard from '../../components/EventCard/EventCard';
 import { useNavigate } from 'react-router-dom';
+import { fetchEvents } from '../../api';
 
 function EventsPage() {
   const [events, setEvents] = useState([]);
   const [filteredEvents, setFilteredEvents] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [searchTerm, setSearchTerm] = useState(''); // För sökfältet
+  const [searchTerm, setSearchTerm] = useState('');
   const navigate = useNavigate();
 
+  // Getting events-information from API
   useEffect(() => {
-    axios
-      .get('https://santosnr6.github.io/Data/events.json')
-      .then(response => {
-        setEvents(response.data.events);
-        setFilteredEvents(response.data.events); // Sätt initialt alla event som visbara
+    fetchEvents()
+      .then((data) => {
+        setEvents(data);
+        setFilteredEvents(data);
         setLoading(false);
       })
-      .catch(err => {
+      .catch((err) => {
         setError('Error loading events');
         setLoading(false);
       });
   }, []);
 
   useEffect(() => {
-    // Filtrera event baserat på sökterm
+    // Filter events based on search-term
     if (searchTerm) {
       const filtered = events.filter(event =>
         event.name.toLowerCase().includes(searchTerm.toLowerCase())
@@ -65,12 +65,14 @@ function EventsPage() {
           placeholder="Search event..." 
           className="search__field"
           value={searchTerm}
-          onChange={handleSearchChange} // Hantera ändringar i sökfältet
+          onChange={handleSearchChange}
         />
       </div>
       <div className="event__list-scroll">
         {filteredEvents.length === 0 ? (
-          <p>No events found.</p>
+          <p style={{ color: 'white', fontFamily: 'FiraSans', fontSize: '1rem', marginTop: '2rem', padding: '2rem' }}>
+          No events found
+          </p>
         ) : (
           filteredEvents.map(event => (
             <EventCard 

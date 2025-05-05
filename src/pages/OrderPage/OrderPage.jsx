@@ -7,7 +7,7 @@ import TicketQuantity from '../../components/TicketQuantity/TicketQuantity';
 import { useNavigate } from 'react-router-dom';
 
 function OrderPage() {
-  const cart = useCartStore(state => state.cart);
+  const cart = useCartStore(state => state.cart); // Using global state for cart
   const clearCart = useCartStore(state => state.clearCart);
   const navigate = useNavigate();
 
@@ -18,16 +18,20 @@ function OrderPage() {
   const totalPrice = calculateTotalPrice();
 
   const handleSubmit = () => {
-    // Skapa en lista med biljetter (en för varje kvantitet)
+    // Creates a list with tickets
     const allTickets = cart.flatMap(item =>
-      Array.from({ length: item.quantity }, () => ({ ...item }))
+      Array.from({ length: item.quantity }, () => ({
+        ...item,
+        where: item.where // Making sure location follows along
+      }))
     );
   
-    // Navigera till TicketsPage och skicka med biljetterna via state
+    // Navigate to TicketsPage and send tickets via state
     navigate('/tickets', { state: { tickets: allTickets } });
-
-    clearCart(); // Rensa varukorgen om du vill
+  
+    clearCart(); // Clear cart after purchase
   };
+  
 
   return (
     <div className="order__page">
@@ -70,6 +74,7 @@ function OrderPage() {
         onClick={handleSubmit}
         text="Buy tickets" 
         className="button__order"
+        disabled={cart.length === 0}
       />
       <NavButtons />
     </div>

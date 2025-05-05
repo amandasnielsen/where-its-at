@@ -1,0 +1,17 @@
+.tickets__page {
+	background: var(--background-color-tickets);
+	height: 100vh;
+	width: 100%;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.tickets__page h1 {
+	font-family: 'SansitaOne';
+	font-size: var(--font-size-title);
+	color: #ffffff;
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+}

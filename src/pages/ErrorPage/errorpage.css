@@ -1,0 +1,27 @@
+.error__page {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: 100vh;
+	width: 100%;
+	background: var(--background-color-gradient);
+	text-align: center;
+
+	.text {
+		display: flex;
+		flex-direction: column;
+		margin-top: 8rem;
+		color: #ffffff;
+
+		h2 {
+			font-family: 'SansitaOne';
+			padding: 4rem;
+			font-size: 2rem;
+		}
+
+		p {
+			font-family: 'SansitaOne';
+			font-size: 1.5rem;
+		}
+	}
+}

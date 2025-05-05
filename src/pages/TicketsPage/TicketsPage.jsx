@@ -1,13 +1,17 @@
 import Ticket from '../../components/Ticket/Ticket';
 import NavButtons from '../../components/NavButtons/NavButtons';
 import Confetti from 'react-confetti';
+import './ticketspage.css';
 import { useEffect, useState } from 'react';
 
 function TicketsPage() {
+  // State to keep track of window-size
   const [windowSize, setWindowSize] = useState({ width: window.innerWidth, height: window.innerHeight });
+  // State to show confetti-rain
   const [showConfetti, setShowConfetti] = useState(true);
 
   useEffect(() => {
+    // Function that updates window-size if changed
     const handleResize = () => {
       setWindowSize({ width: window.innerWidth, height: window.innerHeight });
     };
@@ -15,7 +19,7 @@ function TicketsPage() {
 
     const timer = setTimeout(() => {
       setShowConfetti(false);
-    }, 10000);
+    }, 20000); // Show confetti for 20 seconds
 
     return () => {
       clearTimeout(timer);
@@ -25,6 +29,7 @@ function TicketsPage() {
 
   return (
     <section className="tickets__page">
+      <h1>Your Tickets</h1>
       {showConfetti && (
         <Confetti 
           width={windowSize.width} 

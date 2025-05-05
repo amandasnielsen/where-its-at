@@ -1,16 +1,23 @@
 import './eventcard.css';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 function EventCard({ event }) {
 
   const date = new Date(event.when.date);
   const day = date.getDate();
+  // Makes sure that the month only uses the three first letters, and make them uppercase
   const month = date.toLocaleString('en-US', { month: 'short' }).toUpperCase();
   const formattedDate = `${day} ${month}`;
 
   return (
     <Link to={`/event/${event.id}`} className="event__card-link">
-      <div className="event__card">
+      <motion.div
+        className="event__card"
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
+      >
         <div className="event__card-left">
           <p className="event__card-date">{formattedDate}</p>
         </div>
@@ -22,7 +29,7 @@ function EventCard({ event }) {
             <p className="event__card-price">{event.price} sek</p>
           </span>
         </div>
-      </div>
+      </motion.div>
     </Link>
   );
 }

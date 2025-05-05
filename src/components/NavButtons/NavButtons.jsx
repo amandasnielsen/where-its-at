@@ -13,14 +13,14 @@ function NavButtons() {
 				>Events
 			</button>
 			<button 
-				onClick={() => navigate('/tickets')} 
-				className="button__nav"
-				>My Tickets
-			</button>
-			<button 
 				onClick={() => navigate('/order')} 
 				className="button__nav"
 				>Order
+			</button>
+			<button 
+				onClick={() => navigate('/tickets')} 
+				className="button__nav"
+				>My Tickets
 			</button>
 	</div>
   )

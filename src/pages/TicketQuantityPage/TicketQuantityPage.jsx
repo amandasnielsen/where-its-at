@@ -1,36 +1,35 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useCartStore } from '../../store/cartStore';
-import axios from 'axios';
+import { fetchEvents } from '../../api';
 import './ticketquantitypage.css';
 import TicketQuantity from '../../components/TicketQuantity/TicketQuantity';
 import TicketButton from '../../components/TicketButton/TicketButton';
 import NavButtons from '../../components/NavButtons/NavButtons';
 
 function TicketQuantityPage() {
-  const { eventId } = useParams();
-  const [event, setEvent] = useState(null);
-  const [ticketCount, setTicketCount] = useState(1);
-  const addToCart = useCartStore((state) => state.addToCart);
+  const { eventId } = useParams(); // Getting eventID from url-parameters
+  const [event, setEvent] = useState(null); // State to store event-information
+  const [ticketCount, setTicketCount] = useState(1); // State to keep track of ticket-quanitity
+  const addToCart = useCartStore((state) => state.addToCart); // Function from global state to adding tickets to cart
   const navigate = useNavigate();
 
+  // Getting events-information from API
   useEffect(() => {
-	axios.get('https://santosnr6.github.io/Data/events.json')
-	  .then(res => {
-		const data = Array.isArray(res.data) ? res.data : res.data.events;
-  
-		const found = res.data.events.find(e => e.id === eventId);
-		console.log("Found event:", found);
-  
-		setEvent(found);
-	  })
-	  .catch(err => {
-		console.error('Error fetching event:', err);
-	  });
+    fetchEvents()
+      .then((data) => {
+        const foundEvent = data.find(e => e.id === eventId);
+        console.log("Found event:", foundEvent);
+        setEvent(foundEvent);
+      })
+      .catch((err) => {
+        console.error('Error fetching event:', err);
+      });
   }, [eventId]);
 
   if (!event) return <p>Loading...</p>;
 
+  // When adding tickets to cart, this function runs
   const handleAddToCart = () => {
 	const item = {
 	  id: event.id,
@@ -43,22 +42,14 @@ function TicketQuantityPage() {
 	  to: event.when.to
 	};
   
-	const existingCart = JSON.parse(localStorage.getItem('cart')) || [];
-	const existingIndex = existingCart.findIndex(i => i.id === item.id);
-  
-	if (existingIndex !== -1) {
-	  existingCart[existingIndex].quantity += item.quantity;
-	} else {
-	  existingCart.push(item);
-	}
-  
+	// Adding tickets to cart via cartStore
 	addToCart(item);
-	
-	// Lägg till state här för att skicka event- och ticket-information till order-sidan
+  
+	// Send to order-page with event and ticket-information
 	navigate('/order', {
 	  state: { 
-		event,  // Skicka hela eventet inklusive where
-		tickets: existingCart  // Skicka med en lista över biljetterna (eller de som har lagts till)
+		event,
+		tickets: [item]  // Send the list with tickets just added
 	  }
 	});
   };
@@ -79,7 +70,6 @@ function TicketQuantityPage() {
 		<TicketButton 
 			onClick={handleAddToCart}
 			text="Add to cart" 
-			className="button__cart"
 		/>
 		<NavButtons />
     </div>

@@ -8,7 +8,7 @@
 
 .ticket__price {
 	font-size: 32px;
-	font-family: 'FiraSans';
+	font-family: 'FiraSans-Light';
 	text-shadow: 1px 1px 0px #F56B9A;
 	color: #ffffff;
 	border-bottom: 1px solid var(--font-color-main);
