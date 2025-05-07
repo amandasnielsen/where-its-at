@@ -59,8 +59,10 @@ function EventsPage() {
     <section className="page__events">
       <h1>Events</h1>
       <div className="search__field-wrapper">
+      <label htmlFor="event-search" className="visually-hidden">Search for event</label>
         <i className="search__icon fas fa-search"></i>
         <input 
+          id="event-search"
           type="search" 
           placeholder="Search event..." 
           className="search__field"
